@@ -1,6 +1,29 @@
-const router = require('express').Router();
-const apiRoutes = require('./api');
+const Post = require('./BlogPost');
+const User = require('./User');
+const Comment = require('./Comments');
 
-router.use('/api', apiRoutes);
+User.hasMany(Post, {
+    foreignKey: 'user_id'
+});
 
-module.exports = router;
+Post.belongsTo(User, {
+    foreingKey: 'user_id'
+});
+
+User.hasMany(Comment, {
+    foreignKey: 'user_id'
+});
+
+Comment.belongsTo(User, {
+    foreignKey: 'user_id'
+});
+
+Post.hasMany(Comment, {
+    foreignKey: 'post_id'
+});
+
+Comment.belongsTo(Post, {
+    foreignKey: 'post_id'
+});
+
+module.exports = {Post, User, Comment};
