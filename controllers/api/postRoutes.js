@@ -60,7 +60,7 @@ router.post('/', async (req,res) => {
 
 
 // this routes lets comments be added to a post using its id
-// posiibly needs editing 
+// posibly needs editing 
 router.put('/:id', async (req,res) => {
     try {
         const postData = await Post.findByPk(req.params.id);
@@ -68,13 +68,16 @@ router.put('/:id', async (req,res) => {
             res.status(404).json({message: 'No post found!'});
             return;
         }
-        const newComment = await Comment.create(req.body);
+        const newComment = await Comment.create({
+            ...req.body,
+            post_id: req.params.id,
+            date_created: Date.now()
+        });
         res.status(200).json(newComment);        
     }
     catch (err) {
         res.status(500).json(err);
     }
 });
-
 
 module.exports = router;

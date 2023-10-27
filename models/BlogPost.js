@@ -28,16 +28,16 @@ Post.init(
             }
         },
         date_created: {
-            type: DataTypes.TIME,
+            type: DataTypes.DATE,
             allowNull: false
         },
-        comment_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'comment',
-                key: 'id'
-            }
-        }
+        // comment_id: {
+        //     type: DataTypes.ARRAY(DataTypes.INTEGER),
+        //     references: {
+        //         model: 'comment',
+        //         key: 'id'
+        //     }
+        // }
     },
     {
         sequelize,

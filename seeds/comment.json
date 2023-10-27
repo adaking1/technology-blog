@@ -1,0 +1,38 @@
+[
+    {
+        "text": "You make great points!",
+        "user_id": "3",
+        "post_id": "2",
+        "date_created": "2/2/2022"
+    },
+    {
+        "text": "I'm not sure if you know what you are talking about",
+        "user_id": "2",
+        "post_id": "3",
+        "date_created": "3/4/2019"
+    },
+    {
+        "text": "I don't agree",
+        "user_id": "2",
+        "post_id": "2",
+        "date_created": "4/23/2009"
+    },
+    {
+        "text": "This is very insightful",
+        "user_id": "3",
+        "post_id": "1",
+        "date_created": "1/2/2013"
+    },
+    {
+        "text": "What an average post!",
+        "user_id": "1",
+        "post_id": "1",
+        "date_created": "4/15/2015"
+    },
+    {
+        "text": "This made my head hurt...",
+        "user_id": "4",
+        "post_id": "3",
+        "date_created": "8/21/2008"
+    }
+]
