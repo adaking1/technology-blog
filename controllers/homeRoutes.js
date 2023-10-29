@@ -12,11 +12,16 @@ router.get('/', async (req,res) => {
             }]
         });
         const serPostData = postData.map((post) => post.get({plain:true}));
-        res.render('homepage', serPostData);
+        // res.render('layouts', serPostData);
         console.log(serPostData);
         // need to render homepage using handlebars
+        // need to add an each loop in handlebars homepage to render each post
     }
     catch (err) {
         res.status(500).json(err);
     }
 });
+
+
+
+module.exports = router;
