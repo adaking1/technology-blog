@@ -15,6 +15,10 @@ router.get('/', async (req,res) => {
                 attributes: ['username']
             }]
         });
+        if (!postData) {
+            res.render('homepage');
+            return;
+        }
         const serPostData = postData.map((post) => post.get({plain:true}));
         res.render('homepage', {serPostData, loggedIn: req.session.logged_in});
     }
