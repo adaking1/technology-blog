@@ -12,9 +12,9 @@
     <header>
         <h1>The Tech Blog</h1>
         <nav>
-          <a>Home</a>
+          <a href="/">Home</a>
           {{#if loggedIn}}
-          <a href="dashboard">Dashboard</a>
+          <a href="/dashboard">Dashboard</a>
           <button type="button" id="logout-button">Sign Out</button>
           {{else}}
           <a href="/login">Sign In</a>
@@ -28,6 +28,6 @@
   </body>
 
   {{#if loggedIn}}
-  <script src="./js/logout.js"></script>
+  <script src="/js/logout.js"></script>
   {{/if}}
 </html>

@@ -28,7 +28,7 @@ Post.init(
             }
         },
         date_created: {
-            type: DataTypes.DATE,
+            type: DataTypes.DATEONLY,
             allowNull: false
         },
         // comment_id: {
