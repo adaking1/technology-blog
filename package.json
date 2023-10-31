@@ -13,5 +13,10 @@
     "express-session": "^1.17.3",
     "mysql2": "^3.6.2",
     "sequelize": "^6.33.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.52.0",
+    "prettier": "^3.0.3",
+    "eslint-config-prettier": "^9.0.0"
   }
 }
