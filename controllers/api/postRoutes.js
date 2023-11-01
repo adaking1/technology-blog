@@ -54,26 +54,6 @@ router.get('/:id', async (req,res) => {
     }
 });
 
-// deletes a blogpost using its id
-// router.delete('/:id', async (req,res) => {
-//     try{
-//         const postData = await Post.destroy({
-//             where: {
-//                 id: req.params.id,
-//                 user_id: req.session.user_id
-//             }
-//         });
-//         if (!postData) {
-//             res.status(404).json({message: 'Blogpost not found!'});
-//             return;
-//         }
-//         res.status(200).json(postData);
-//     }
-//     catch (err) {
-//         res.status(500).json(err);
-//     }
-// });
-
 // this adds a new blog post
 router.post('/', auth, async (req,res) => {
     try{
