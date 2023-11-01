@@ -1,12 +1,15 @@
 <h2>{{user.dataValues.username}}'s Dashboard</h2>
 <a href="/create" id="createPost">Create Blog Post</a>
 {{#each serialized as |post|}}
-<div>
-    <h3>{{post.title}}</h3>
-    <p>{{post.contents}}</p>
-    <p>{{post.date_created}}</p>
+<div class="post" data-PostId="{{post.id}}">
+    <h3 class="post" data-PostId="{{post.id}}">{{post.title}}</h3>
+    <p class="post" data-PostId="{{post.id}}">{{post.contents}}</p>
+    <p class="post" data-PostId="{{post.id}}">{{post.date_created}}</p>
 </div>
 {{/each}}
 {{#unless serialized}}
 <h3>You haven't made any posts yet!</h3>
 {{/unless}}
+
+
+<script src="/js/dashboard.js"></script>

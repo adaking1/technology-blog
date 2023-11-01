@@ -13,7 +13,12 @@ const hbs = exphbs.create({});
 
 const sess = {
     secret: process.env.SESSION_SECRET,
-    cookie: {},
+    cookie: {
+        maxAge: 200000,
+        httpOnly: true,
+        secure: false,
+        sameSite: 'strict'
+    },
     resave: false,
     saveUninitialized: true,
     store: new SequelizeStore({
@@ -32,4 +37,3 @@ app.use(routes);
 sequelize.sync({force:false}).then(() =>{
     app.listen(PORT, () => console.log(`Now listening on port ${PORT}`));
 });
-module.exports = app;

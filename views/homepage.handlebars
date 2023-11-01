@@ -1,12 +1,16 @@
 {{#each serPostData as |post|}}
-<div>
-    <h2>{{post.title}}</h2>
-    <h3>By, {{post.user.username}}</h3>
-    <p>{{post.contents}}</p>
-    <p>{{post.date_created}}</p>
+<div class="post" data-PostId="{{post.id}}">
+    <h2 class="post" data-PostId="{{post.id}}">{{post.title}}</h2>
+    <h3 class="post" data-PostId="{{post.id}}">By, {{post.user.username}}</h3>
+    <p class="post" data-PostId="{{post.id}}">{{post.contents}}</p>
+    <p class="post" data-PostId="{{post.id}}">{{post.date_created}}</p>
 </div>
 {{/each}}
 {{#unless serPostData}}
 <h2>No Posts Yet!</h2>
 {{/unless}}
+
+
+
+<script src="/js/dashboard.js"></script>
 
