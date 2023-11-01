@@ -10,6 +10,7 @@
     {{/if}}
     {{#if userMatch}}
     <button type="button" id="deleteButton" data-postId="{{serPostData.id}}">Delete Post</button>
+    <button type="button" id="updateButton" data-postId="{{serPostData.id}}">Update Post</button>
     {{/if}}
     <h4>Comments:</h4>
     {{#each serCommentData as |comment|}}

@@ -65,6 +65,44 @@ router.post('/', auth, async (req,res) => {
     }
 });
 
+// route to render update page
+router.get('/:id/update', auth, async (req,res) => {
+    try {
+        const postData = await Post.findByPk(req.params.id);
+        if (!postData) {
+            res.json(404).json({message: 'No post found!'});
+            return;
+        }
+        const post = postData.get({plain:true});
+        res.render('update', {post, loggedIn:req.session.logged_in});
+    }
+    catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+// route to update user's post
+router.post('/:id/update', auth, async (req, res) => {
+    console.log(req.body);
+    try {
+        const postData = await Post.findByPk(req.params.id);
+        if (!postData) {
+            res.json(404).json({message: 'No post found!'});
+            return;
+        }
+        console.log(postData.contents);
+        // const post = postData.get({plain:true});
+        postData.contents = req.body.update;
+        await postData.save();
+        res.status(200).json({message: 'Post updated!', postData});
+    }
+    catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+
+
 
 // this routes lets comments be added to a post using its id
 // posibly needs editing 

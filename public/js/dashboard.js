@@ -5,7 +5,6 @@ const createPage = async (event) => {
 
 const viewPost = async (event) => {
     const postId = event.target.getAttribute('data-postId');
-    console.log(postId);
     document.location.replace(`/api/posts/${postId}`);
 };
 
@@ -43,6 +42,39 @@ const addComment = async (event) => {
         }
     }
 };
+
+const updateBtn = async (event) => {
+    event.preventDefault();
+    const id = event.target.getAttribute('data-postId');
+    document.location.replace(`/api/posts/${id}/update`);
+};
+
+const saveUpdate = async (event) => {
+    event.preventDefault();
+    const update = document.querySelector('#updatePost').value.trim();
+    if (update) {
+        const id = event.target.getAttribute('data-postId');
+        const call = await fetch(`/api/posts/${id}/update`, {
+            method: 'POST',
+            body: JSON.stringify({update}),
+            headers: {'Content-Type': 'application/json'}
+        });
+        if (call.ok) {
+            document.location.replace('/dashboard');
+        }
+        else {
+            alert('Unable to update!');
+        }
+    }
+};
+
+if (document.querySelector('#saveUpdate')) {
+    document.querySelector('#saveUpdate').addEventListener('click', saveUpdate);
+}
+
+if (document.querySelector('#updateButton')) {
+    document.querySelector('#updateButton').addEventListener('click', updateBtn);
+}
 
 if(document.querySelector('#newComment')){
     document.querySelector('#addCommentBtn').addEventListener('click', addComment);
