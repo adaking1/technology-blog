@@ -42,6 +42,7 @@ router.get('/dashboard', auth, async (req,res) => {
         }
         const user = await User.findByPk(req.session.user_id);
         const userDash = await Post.findAll({
+            order: [['date_created', 'DESC']],
             include: [{
                 model: User,
                 required: true,
