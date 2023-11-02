@@ -1,0 +1,12 @@
+header {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: darkslategray;
+    color: bisque;
+    justify-content:space-between;
+    align-items: center;
+}
+
+a {
+    color:indianred
+}
