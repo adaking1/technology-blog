@@ -8,5 +8,90 @@ header {
 }
 
 a {
-    color:indianred
+    color:lightcoral;
+    text-decoration: none;
+    margin: 10px;
+    font-size: 20px;
+}
+
+body {
+    background-color: darkslategray;
+}
+
+main {
+    background-color: lightgray;
+    margin: -8px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    padding-bottom: 30px;
+}
+
+.post {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#postDiv {
+    border: 5px solid darkslategray;
+    padding: 0 150px;
+    margin-top: 25px;
+}
+
+h2 {
+    font-size: 28px;
+}
+
+h3 {
+    font-size: 18px;
+}
+
+.post:hover {
+    cursor: pointer;
+}
+
+#postOnly {
+    border: 3px solid darkslategray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 200px;
+    margin: 20px 0;
+}
+
+#postTitle {
+    padding: 0 80px;
+    border-bottom: 3px solid darkslategray;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+}
+
+.login {
+    margin-top: 20px;
+}
+
+#commentCard {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+#createPost {
+    align-self: center;
+}
+
+#dashPost {
+    border: 5px solid darkslategray;
+    padding: 0 150px;
+    margin-top: 25px;
+}
+
+#dashUser {
+    align-self: center;
 }

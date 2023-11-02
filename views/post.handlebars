@@ -1,8 +1,10 @@
 <div class="post" id="soloPost">
-    <h3>{{serPostData.title}}</h3>
-    <p>{{serPostData.contents}}</p>
-    <p>By, {{serPostData.user.username}}</p>
-    <p>{{serPostData.date_created}}</p>
+    <section id="postOnly">
+        <h2 id="postTitle">{{serPostData.title}}</h2>
+        <p id="singlePost">{{serPostData.contents}}</p>
+        <p>By, {{serPostData.user.username}}</p>
+        <p>{{serPostData.date_created}}</p>
+    </section>
     {{#if loggedIn}}
     <label for="newComment">Add Comment:</label>
     <input type="text" id="newComment">
@@ -12,14 +14,16 @@
     <button type="button" id="deleteButton" data-postId="{{serPostData.id}}">Delete Post</button>
     <button type="button" id="updateButton" data-postId="{{serPostData.id}}">Update Post</button>
     {{/if}}
-    <h4>Comments:</h4>
-    {{#each serCommentData as |comment|}}
-    <card>
-        <h5>{{comment.user.username}}</h5>
-        <p>{{comment.text}}</p>
-        <p>{{comment.date_created}}</p>
-    </card>
-    {{/each}}
+    <h3>Comments:</h3>
+    <section id="commentCard">
+        {{#each serCommentData as |comment|}}
+        <card>
+            <h4>{{comment.user.username}}</h4>
+            <p>{{comment.text}}</p>
+            <p>{{comment.date_created}}</p>
+        </card>
+        {{/each}}
+    </section>
 </div>
 
 <script src="/js/dashboard.js"></script>

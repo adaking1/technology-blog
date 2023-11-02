@@ -1,7 +1,7 @@
-<h2>{{user.dataValues.username}}'s Dashboard</h2>
+<h2 id="dashUser">{{user.dataValues.username}}'s Dashboard</h2>
 <a href="/create" id="createPost">Create Blog Post</a>
 {{#each serialized as |post|}}
-<div class="post" data-PostId="{{post.id}}">
+<div id="dashPost" class="post" data-PostId="{{post.id}}">
     <h3 class="post" data-PostId="{{post.id}}">{{post.title}}</h3>
     <p class="post" data-PostId="{{post.id}}">{{post.contents}}</p>
     <p class="post" data-PostId="{{post.id}}">{{post.date_created}}</p>
