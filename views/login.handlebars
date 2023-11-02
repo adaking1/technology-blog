@@ -3,18 +3,18 @@
     <form id="login-user">
         <label for="username">Username:</label>
         <input type="text" id="username">
-        <label for="password">Password:</label>
-        <input type="text" id="password">
+        <label for="password">Password (at least 8 characters):</label>
+        <input type="password" id="password" minlength="8">
         <button type="submit">Login</button>
     </form>
 </div>
 <div>
     <h2>Create Account</h2>
     <form id="signup-user">
-        <label for="newUsername">Username: </label>
+        <label for="newUsername">Username (minimum 4 characters): </label>
         <input type="text" id="newUsername" name="newUsername" minlength="4">
         <label for="newEmail">Email: </label>
-        <input type="text" id="newEmail" name="newEmail">
+        <input type="email" id="newEmail" name="newEmail">
         <label for="newPassword">Password: </label>
         <input type="password" id="newPassword" name="newPassword">
         <button type="submit">Sign Up</button>

@@ -32,8 +32,6 @@ router.post('/login', async (req,res) => {
 // creates a new user using the inputs from the sign-in fields
 router.post('/', async (req,res) => {
     try {
-        console.log('XXXXXXXX');
-        console.log(req.body);
         const newUser = await User.create(req.body);
         req.session.save(() => {
             req.session.user_id = newUser.id;

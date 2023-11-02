@@ -2,11 +2,8 @@ const router = require('express').Router();
 const {Post, User, Comment} = require('../models');
 const auth = require('../utils/helpers');
 
-
-
 // this gets all posts and displays them on the homepage
 router.get('/', async (req,res) => {
-    console.log(req.session);
     try {
         const postData = await Post.findAll({
             order: [['date_created', 'DESC']],
@@ -79,29 +76,5 @@ router.post('/create', auth, async (req,res) => {
         res.status(500).json(err);
     }
 });
-
-// route to delete a logged in user's post
-// router.delete('/post/:id', auth, async (req,res) => {
-//     try {
-//         const post = await Post.destroy({
-//             where: {
-//                 id: req.params.id,
-//                 user_id: req.session.user_id
-//             }
-//         });
-//         if (!post) {
-//             res.status(404).json({message: 'No post found'});
-//             return;
-//         }
-//         // document.location
-//         res.status(200).json(post);
-//     }
-//     catch (err) {
-//         res.status(500).json(err);
-//     }
-// });
-
-
-// make dashboard route show posts in order by date
 
 module.exports = router;

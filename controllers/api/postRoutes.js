@@ -3,17 +3,6 @@ const session = require('express-session');
 const {Post, Comment, User} = require('../../models');
 const auth = require('../../utils/helpers');
 
-// gets all blogposts
-// router.get('/', async (req,res) => {
-//     try{
-//         const blogData = await Post.findAll();
-//         res.status(200).json(blogData);
-//     }
-//     catch (err) {
-//         res.status(500).json(err);
-//     }
-// });
-
 // gets specific blogpost by id
 router.get('/:id', async (req,res) => {
     try{
@@ -40,8 +29,6 @@ router.get('/:id', async (req,res) => {
         }
         const serPostData = postData.get({plain:true});
         const serCommentData = commentData.map((post) => post.get({plain:true}));
-        console.log(serCommentData);
-        console.log(serPostData);
         if (serPostData.user_id === req.session.user_id){
             const userMatch = true;
             res.render('post', {serPostData, serCommentData, userMatch, loggedIn:req.session.logged_in});
@@ -83,15 +70,12 @@ router.get('/:id/update', auth, async (req,res) => {
 
 // route to update user's post
 router.post('/:id/update', auth, async (req, res) => {
-    console.log(req.body);
     try {
         const postData = await Post.findByPk(req.params.id);
         if (!postData) {
             res.json(404).json({message: 'No post found!'});
             return;
         }
-        console.log(postData.contents);
-        // const post = postData.get({plain:true});
         postData.contents = req.body.update;
         await postData.save();
         res.status(200).json({message: 'Post updated!', postData});
@@ -102,10 +86,7 @@ router.post('/:id/update', auth, async (req, res) => {
 });
 
 
-
-
 // this routes lets comments be added to a post using its id
-// posibly needs editing 
 router.put('/:id', auth, async (req,res) => {
     try {
         const postData = await Post.findByPk(req.params.id);
@@ -139,7 +120,6 @@ router.delete('/:id', auth, async (req,res) => {
             res.status(404).json({message: 'No post found'});
             return;
         }
-        // document.location
         res.status(200).json(post);
     }
     catch (err) {
