@@ -1,6 +1,6 @@
 # Technology Blog
  
-![image](image.png)  
+![image](/assets/images/image-1.png))  
 
 ## Table of Contents
 -[Description](#description)  
